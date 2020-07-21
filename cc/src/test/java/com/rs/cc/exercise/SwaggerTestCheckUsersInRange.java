@@ -2,7 +2,7 @@ package com.rs.cc.exercise;
 
 import static org.junit.Assert.*;
 
-import java.util.HashMap;
+
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

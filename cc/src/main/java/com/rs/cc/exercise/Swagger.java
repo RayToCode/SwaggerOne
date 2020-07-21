@@ -10,7 +10,8 @@ import java.net.URL;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class Swagger {
+
+public class Swagger implements SwaggerInterface {
 	
 	//instance variables
 	private double latitudeOrigin = 0.0;
@@ -36,22 +37,14 @@ public class Swagger {
 
 
 	public Swagger(double latitude, double longitude, double distance, String city, String resource) {
-		super();
-		this.resource = resource;
-		this.latitudeOrigin = latitude;
-		this.longitudeOrigin = longitude;
-		this.distance = distance;
+		this(latitude, longitude, distance);
 		this.city = city;
+		this.resource = resource;
 	}
 	
 	
 	public Swagger(double latitude, double longitude, double distance, String city, String resource, int precision) {
-		super();
-		this.resource = resource;
-		this.latitudeOrigin = latitude;
-		this.longitudeOrigin = longitude;
-		this.distance = distance;
-		this.city = city;
+		this(latitude, longitude, distance, city, resource);
 		this.precision = precision;
 	}	
 	
@@ -150,13 +143,15 @@ public class Swagger {
 	}
 	
 	
+
+	
 	/**
 	 * @author Raymond Snare
 	 * 
 	 * @param conn
 	 * @return
 	 */
-	public String read(HttpURLConnection conn) {
+	public String getUsers(HttpURLConnection conn) {
 		//Use StringBuilder to collect String values
 		StringBuilder jsonBuilder = new StringBuilder();
 		
@@ -187,6 +182,7 @@ public class Swagger {
 		}
 		return jsonStr;
 	}
+
 	
 	
 	/**
